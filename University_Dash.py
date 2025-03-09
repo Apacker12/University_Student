@@ -10,7 +10,7 @@ student_df = pd.read_excel("university_student_dashboard_data.xls")
 st.title(" :bar_chart: University Student Trend Analysis")
 
 # Adding KPIs
-st.metric("Total Applications", f"{student_df['Applications'].sum():,f}")
+st.metric("Total Applications", f"{student_df['Applications'].sum():,.0f}")
 st.metric("Total Admissions", f"{student_df['Admitted'].sum():,.2f}")
 st.metric("Total Enrollments", f"{student_df['Enrolled'].sum():,.2f}")
 st.metric("Total Science Enrollees", f"{student_df['Science Enrolled'].sum():,.2f}")
