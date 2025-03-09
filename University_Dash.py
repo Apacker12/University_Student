@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 import streamlit as st
+import matplotlib.pyplot as plt
 
 # Loading the data
 student_df = pd.read_excel("university_student_dashboard_data.xls")
