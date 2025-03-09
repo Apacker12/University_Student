@@ -1,3 +1,4 @@
+# To import libraries and packages
 import pandas as pd
 import numpy as np
 import streamlit as st
@@ -42,19 +43,21 @@ average_satisfaction = student_df3['Student Satisfaction (%)'].mean()
 average_retention = student_df3['Retention Rate (%)'].mean()
 
 # Adding the KPIs
-col1, col2, col3 = st.columns(3)
+col1, col2, col3, col4 = st.columns(4)
 with col1:
-    st.metric("Total Applications", f"{student_df3['Applications'].sum():,.0f}")
     st.metric("Total Science Enrollees", f"{student_df3['Science'].sum():,.0f}")
-    st.metric("Total Arts Enrollees", f"{student_df3['Arts'].sum():,.0f}")
+    st.metric("Total Applications", f"{student_df3['Applications'].sum():,.0f}")
+    st.metric("Average Admission Rate", f"{average_admission_rate:.2f}%")
 with col2:
-    st.metric("Total Admissions", f"{student_df3['Admitted'].sum():,.0f}")
     st.metric("Total Engineering Enrollees", f"{student_df3['Engineering'].sum():,.0f}")
+    st.metric("Total Admissions", f"{student_df3['Admitted'].sum():,.0f}")
     st.metric("Average Satisfaction", f"{average_satisfaction:.2f}%")
 with col3:
-    st.metric("Total Enrollments", f"{student_df3['Enrolled'].sum():,.0f}")
     st.metric("Total Business Enrollees", f"{student_df3['Business'].sum():,.0f}")
+    st.metric("Total Enrollments", f"{student_df3['Enrolled'].sum():,.0f}")
     st.metric("Average Retention", f"{average_retention:.2f}%")
+with col4:
+    st.metric("Total Arts Enrollees", f"{student_df3['Arts'].sum():,.0f}")
 
 # Creating a line plot for the type of Enrollees over time
 fig1 = plt.figure(figsize=(12, 8))
@@ -77,6 +80,17 @@ plt.xlabel('Date')
 plt.ylabel('Rate')
 plt.legend()
 st.pyplot(fig2)
+
+# Creating a line plot for the Applications, Admitted, and Enrolled
+fig3 = plt.figure(figsize=(12, 8))
+plt.plot(student_df3['Term_Date'], student_df3['Applications'], label='Applications', color='blue')
+plt.plot(student_df3['Term_Date'], student_df3['Admitted'], label='Admitted', color='green')
+plt.plot(student_df3['Term_Date'], student_df3['Enrolled'], label='Enrolled', color='red')
+plt.title('Applications, Admitted, and Enrolled Over Time')
+plt.xlabel('Date')
+plt.ylabel('Number of Students')
+plt.legend()
+st.pyplot(fig3)
 
 # Creating a data table
 st.subheader("University Student Data")
