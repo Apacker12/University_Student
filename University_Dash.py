@@ -48,16 +48,10 @@ average_admission_rate = admission_rate.mean()
 col1, col2, col3, col4 = st.columns(4)
 with col1:
     st.metric("Total Science Enrollees", f"{student_df3['Science'].sum():,.0f}")
-    st.metric("Total Applications", f"{student_df3['Applications'].sum():,.0f}")
-    st.metric("Average Admission Rate", f"{average_admission_rate:.2f}%")
 with col2:
     st.metric("Total Engineering Enrollees", f"{student_df3['Engineering'].sum():,.0f}")
-    st.metric("Total Admissions", f"{student_df3['Admitted'].sum():,.0f}")
-    st.metric("Average Satisfaction", f"{average_satisfaction:.2f}%")
 with col3:
     st.metric("Total Business Enrollees", f"{student_df3['Business'].sum():,.0f}")
-    st.metric("Total Enrollments", f"{student_df3['Enrolled'].sum():,.0f}")
-    st.metric("Average Retention", f"{average_retention:.2f}%")
 with col4:
     st.metric("Total Arts Enrollees", f"{student_df3['Arts'].sum():,.0f}")
 
