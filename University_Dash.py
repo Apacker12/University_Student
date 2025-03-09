@@ -70,8 +70,8 @@ st.pyplot(fig1)
 
 # Creating a line plot for the retention and satisfaction rates over time
 fig2 = plt.figure(figsize=(12, 8))
-plt.plot(student_df3['Term_Date'], student_df3['Retention Rate (%)'], label='Retention Rate', color='blue')
-plt.plot(student_df3['Term_Date'], student_df3['Student Satisfaction (%)'], label='Satisfaction', color='green')
+plt.plot(student_df3['Term_Date'], student_df3['Retention Rate (%)'], label='Retention Rate', color='red')
+plt.plot(student_df3['Term_Date'], student_df3['Student Satisfaction (%)'], label='Satisfaction', color='orange')
 plt.title('Retention Rate and Satisfaction Over Time')
 plt.xlabel('Date')
 plt.ylabel('Rate')
