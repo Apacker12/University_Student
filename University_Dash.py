@@ -1,27 +1,34 @@
+import pandas as pd
+import numpy as np
+import streamlit as st
+
 # Adding the title
 st.title(" :bar_chart: University Student Trend Analysis")
+
+# Loading the data
 student_df = pd.read_excel("university_student_dashboard_data.xls")
 
 # Adding KPIs
 st.metric("Total Applications", f"${student_df['Applications'].sum():,.2f}")
 st.metric("Total Admissions", f"${student_df['Admissions'].sum():,.2f}")
 st.metric("Total Enrollments", f"${student_df['Enrollments'].sum():,.2f}")
-st.metric("Total Science Enrollees", {student_df['Science Enrollees'].sum()})
-st.metric("Total Engineering Enrollees", {student_df['Engineering Enrollees'].sum()})
-st.metric("Total Business Enrollees", {student_df['Business Enrollees'].sum()})
-st.metric("Total Arts Enrollees", {student_df['Arts Enrollees'].sum()})
+st.metric("Total Science Enrollees", f"{student_df['Science Enrollees'].sum()}")
+st.metric("Total Engineering Enrollees", f"{student_df['Engineering Enrollees'].sum()}")
+st.metric("Total Business Enrollees", f"{student_df['Business Enrollees'].sum()}")
+st.metric("Total Arts Enrollees", f"{student_df['Arts Enrollees'].sum()}")
 
-# To add a new column with the text "08" for any Term of "Fall" and "01" for any Term of "Spring"
+# Adding a new column with the text "08" for any Term of "Fall" and "01" for any Term of "Spring"
 student_df['Month'] = student_df['Term'].apply(lambda x: '08' if x == 'Fall' else ('01' if x == 'Spring' else ''))
 
-# To concatenate the Month and Term columns with an "/01/" in between the two
+# Concatenating the Month and Term columns with an "/01/" in between the two
 student_df['Term_Date'] = student_df['Month'] + '/01/' + student_df['Year'].astype(str)
 
-#Changing the Term_Date column to a date type
+# Changing the Term_Date column to a date type
 student_df['Term_Date'] = pd.to_datetime(student_df['Term_Date'])
 
-#To remove "Enrolled" from the column header "Engineering"
-student_df = student_df.rename(columns={'Engineering Enrolled': 'Engineering','Business Enrolled': 'Business', 'Arts Enrolled': 'Arts', 'Science Enrolled': 'Science'})
+# Removing "Enrolled" from the column header
+student_df = student_df.rename(columns={'Engineering Enrolled': 'Engineering', 'Business Enrolled': 'Business', 'Arts Enrolled': 'Arts', 'Science Enrolled': 'Science'})
+
 st.sidebar.header("Choose your filter: ")
 
 # Creating a filter for the Year
@@ -40,4 +47,4 @@ else:
 
 # Data Table
 st.subheader("University Student Data")
-st.dataframe(student_df)
+st.dataframe(student_df3)
