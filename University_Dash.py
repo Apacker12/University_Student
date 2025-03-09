@@ -67,11 +67,12 @@ plt.ylabel('Number of Enrollees')
 plt.legend()
 st.pyplot(fig1)
 
-# Creating a line plot for the retention and satisfaction rates over time
-fig2 = plt.figure(figsize=(12, 8))
+#Creating a line plot for the retention, satisfaction, and admission rates over time
+fig1 = plt.figure(figsize=(12, 8))
 plt.plot(student_df3['Term_Date'], student_df3['Retention Rate (%)'], label='Retention Rate', color='magenta')
 plt.plot(student_df3['Term_Date'], student_df3['Student Satisfaction (%)'], label='Satisfaction', color='orange')
-plt.title('Retention Rate and Satisfaction Over Time')
+plt.plot(student_df3['Term_Date'], student_df3['Admission Rate (%)'], label='Admission Rate', color='green')
+plt.title('Retention Rate, Satisfaction, and Admission Rate Over Time')
 plt.xlabel('Date')
 plt.ylabel('Rate')
 plt.legend()
