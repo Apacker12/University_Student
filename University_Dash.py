@@ -98,9 +98,9 @@ with col3:
 
 # Creating a line plot for the Applications, Admitted, and Enrolled
 fig3 = plt.figure(figsize=(12, 8))
-plt.plot(student_df3['Term_Date'], student_df3['Applications'], label='Applications', color='blue')
-plt.plot(student_df3['Term_Date'], student_df3['Admitted'], label='Admitted', color='green')
-plt.plot(student_df3['Term_Date'], student_df3['Enrolled'], label='Enrolled', color='red')
+plt.plot(student_df3['Term_Date'], student_df3['Applications'], label='Applications', color='cyan')
+plt.plot(student_df3['Term_Date'], student_df3['Admitted'], label='Admitted', color='pink')
+plt.plot(student_df3['Term_Date'], student_df3['Enrolled'], label='Enrolled', color='maroon')
 plt.title('Applications, Admitted, and Enrolled Over Time')
 plt.xlabel('Date')
 plt.ylabel('Number of Students')
