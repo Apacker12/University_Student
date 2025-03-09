@@ -22,10 +22,10 @@ with col1:
 with col2:
   st.metric("Total Admissions", f"{student_df['Admitted'].sum():,.0f}")
   st.metric("Total Engineering Enrollees", f"{student_df['Engineering Enrolled'].sum():,.0f}")
-  st.metric("Average Satisfaction", f"{average_satisfaction:.2f}")
+  st.metric("Average Satisfaction", f"{average_satisfaction:.2f}%")
 with col3:
   st.metric("Total Enrollments", f"{student_df['Enrolled'].sum():,.0f}")
   st.metric("Total Business Enrollees", f"{student_df['Business Enrolled'].sum():,.0f}")
-  st.metric("Average Rentention", f"{average_retention:.2f}")
+  st.metric("Average Rentention", f"{average_retention:.2f}%")
 
 
