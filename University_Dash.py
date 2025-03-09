@@ -9,20 +9,11 @@ student_df = pd.read_excel("university_student_dashboard_data.xls")
 # Adding the title
 st.title(" :bar_chart: University Student Trend Analysis")
 
-# To change the required columns to an integer data type
-student_df['Applications'] = student_df['Applications'].astype(int)
-student_df['Admitted'] = student_df['Admitted'].astype(int)
-student_df['Enrolled'] = student_df['Enrolled'].astype(int)
-student_df['Science Enrolled'] = student_df['Science Enrolled'].astype(int)
-student_df['Engineering Enrolled'] = student_df['Engineering Enrolled'].astype(int)
-student_df['Business Enrolled'] = student_df['Business Enrolled'].astype(int)
-student_df['Arts Enrolled'] = student_df['Arts Enrolled'].astype(int)
-
 # Adding KPIs
-st.metric("Total Applications", student_df['Applications'].sum())
-st.metric("Total Admissions", student_df['Admitted'].sum())
-st.metric("Total Enrollments", student_df['Enrolled'].sum())
-st.metric("Total Science Enrollees", student_df['Science Enrolled'].sum())
-st.metric("Total Engineering Enrollees", student_df['Engineering Enrolled'].sum())
-st.metric("Total Business Enrollees", student_df['Business Enrolled'].sum())
-st.metric("Total Arts Enrollees", student_df['Arts Enrolled'].sum())
+st.metric("Total Applications", f"{student_df['Applications'].sum():,.2f}")
+st.metric("Total Admissions", f"{student_df['Admitted'].sum():,.2f}")
+st.metric("Total Enrollments", f"{student_df['Enrolled'].sum():,.2f}")
+st.metric("Total Science Enrollees", f"{student_df['Science Enrolled'].sum():,.2f}")
+st.metric("Total Engineering Enrollees", f"{student_df['Engineering Enrolled'].sum():,.2f}")
+st.metric("Total Business Enrollees", f"{student_df['Business Enrolled'].sum():,.2f}")
+st.metric("Total Arts Enrollees", f"{student_df['Arts Enrolled'].sum():,.2f}")
