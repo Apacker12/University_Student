@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 # Loading the data
 student_df = pd.read_excel("university_student_dashboard_data.xls")
 
-# Adding the title
+# To add a title
 st.title(" :bar_chart: University Student Trend Analysis")
 
 # Adding a new column with the text "08" for any Term of "Fall" and "01" for any Term of "Spring"
@@ -16,7 +16,7 @@ student_df['Month'] = student_df['Term'].apply(lambda x: '08' if x == 'Fall' els
 # Concatenating the Month and Term columns with an "/01/" in between the two
 student_df['Term_Date'] = student_df['Month'] + '/01/' + student_df['Year'].astype(str)
 
-# Changing the Term_Date column to a date type
+# To change the Term_Date column to a date type
 student_df['Term_Date'] = pd.to_datetime(student_df['Term_Date'])
 
 # Removing "Enrolled" from the column header
@@ -76,10 +76,6 @@ with col2:
 with col3:
     st.metric("Average Retention", f"{average_retention:.2f}%")
 
-
-
-
-    
 # Creating a line plot for the retention, satisfaction, and admission rates over time
 fig2 = plt.figure(figsize=(12, 8))
 plt.plot(student_df3['Term_Date'], student_df3['Retention Rate (%)'], label='Retention Rate', color='magenta')
@@ -90,6 +86,15 @@ plt.xlabel('Date')
 plt.ylabel('Rate')
 plt.legend()
 st.pyplot(fig2)
+
+# To add the third plot's KPIs
+col1, col2, col3 = st.columns(3)
+with col1:
+    st.metric("Total Enrollments", f"{student_df3['Enrolled'].sum():,.0f}")
+with col2:
+    st.metric("Total Applications", f"{student_df3['Applications'].sum():,.0f}")
+with col3:
+    st.metric("Total Admissions", f"{student_df3['Admitted'].sum():,.0f}")
 
 # Creating a line plot for the Applications, Admitted, and Enrolled
 fig3 = plt.figure(figsize=(12, 8))
