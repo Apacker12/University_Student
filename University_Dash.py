@@ -56,17 +56,30 @@ with col3:
     st.metric("Total Business Enrollees", f"{student_df3['Business'].sum():,.0f}")
     st.metric("Average Retention", f"{average_retention:.2f}%")
 
-# Creating a line plot
-plt.figure(figsize=(12, 8))
-plt.plot(student_df3['Term_Date'], student_df3['Science'], label='Science Enrollees', color='blue')
-plt.plot(student_df3['Term_Date'], student_df3['Engineering'], label='Engineering Enrollees', color='green')
-plt.plot(student_df3['Term_Date'], student_df3['Business'], label='Business Enrollees', color='red')
-plt.plot(student_df3['Term_Date'], student_df3['Arts'], label='Arts Enrollees', color='purple')
-plt.title('Enrollees Over Time by Category')
-plt.xlabel('Date')
-plt.ylabel('Number of Enrollees')
-plt.legend()
-st.pyplot(plt)
+# Adding Columns for the visuals
+col1, col2 = st.columns(2)
+with col1:
+    # Creating a line plot for the type of Enrollees over time
+    plt.figure(figsize=(12, 8))
+    plt.plot(student_df3['Term_Date'], student_df3['Science'], label='Science Enrollees', color='blue')
+    plt.plot(student_df3['Term_Date'], student_df3['Engineering'], label='Engineering Enrollees', color='green')
+    plt.plot(student_df3['Term_Date'], student_df3['Business'], label='Business Enrollees', color='red')
+    plt.plot(student_df3['Term_Date'], student_df3['Arts'], label='Arts Enrollees', color='purple')
+    plt.title('Enrollees Over Time by Category')
+    plt.xlabel('Date')
+    plt.ylabel('Number of Enrollees')
+    plt.legend()
+    st.pyplot(plt)
+with col2:
+    # Creating a line plot for the rentention and satisfaction rates over time
+    plt.figure(figsize=(12, 8))
+    plt.plot(student_df3['Term_Date'], student_df3['Retention Rate'], label='Retention Rate', color='blue')
+    plt.plot(student_df3['Term_Date'], student_df3['Satisfaction'], label='Satisfaction', color='green')
+    plt.title('Retention Rate and Satisfaction Over Time')
+    plt.xlabel('Date')
+    plt.ylabel('Rate')
+    plt.legend()
+    st.pyplot(plt)
 
 # Creating a data table
 st.subheader("University Student Data")
