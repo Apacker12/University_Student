@@ -1,5 +1,5 @@
 pandas
 streamlit
 plotly
-xlrd
+matplotlib.pyplot
 matplotlib
