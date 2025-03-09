@@ -113,6 +113,11 @@ plt.ylabel('Number of Students')
 plt.legend()
 st.pyplot(fig3)
 
+# To add a textbox under the third plot
+st.write("Although applications appeared to dip according to the chart, the admission rate (as observed from the prior plot) was able to slightly increase during the 2020 Pandemic. We can see that this may be due to the large applicant pool in comparison to the total admissions for the university. Regardless, both applications and those admitted reclined during COVID-19, in alignment with our previous observations. Fortunately, the applications and admissions appear to be on the rise. 
+Overall, this data set highlights the effects of the COVID-19 pandemic on the university which this data set is for and may be used to predict future trends during similar circumstances, although I’m sure we all hope that another happening doesn’t occur ever again.")
+
+
 # Creating a data table
 st.subheader("University Student Data")
 st.dataframe(student_df3)
