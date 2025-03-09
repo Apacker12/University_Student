@@ -68,7 +68,7 @@ plt.legend()
 st.pyplot(fig1)
 
 # To add a textbox under the first plot
-text = st.text_area("Upon analysis of the enrollee categories, Science is the only category on the decline. It's interesting to note that there was a boost in science enrollees during 2020, around the time the COVID-19 pandemic erupted. Around this time, the other areas had shar declines for enrollees—with engineering appearing to have the most drastic dip during that time."
+text = st.text_area("Upon analysis of the enrollee categories, Science is the only category on the decline. It's interesting to note that there was a boost in science enrollees during 2020, around the time the COVID-19 pandemic erupted. Around this time, the other areas had shar declines for enrollees—with engineering appearing to have the most drastic dip during that time.")
 
 # To add the second plot's KPIs
 col1, col2, col3 = st.columns(3)
