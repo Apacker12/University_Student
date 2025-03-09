@@ -90,6 +90,9 @@ plt.ylabel('Rate')
 plt.legend()
 st.pyplot(fig2)
 
+# To add a textbox under the second plot
+st.write("The trend continues for the retention rate and satisfaction rates during the time of the pandemic. However, the admission rates were stable, likely due to the uptick in science enrollees. It could be assumed that the increased interest in science was related to the need for, and race to, a vaccine in 2020.")
+
 # To add the third plot's KPIs
 col1, col2, col3 = st.columns(3)
 with col1:
