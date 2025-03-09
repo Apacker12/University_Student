@@ -55,6 +55,18 @@ with col3:
     st.metric("Total Business Enrollees", f"{student_df3['Business'].sum():,.0f}")
     st.metric("Average Retention", f"{average_retention:.2f}%")
 
+# Creating a line plot
+plt.figure(figsize=(12, 8))
+plt.plot(student_df3['Term_Date'], student_df3['Science'], label='Science Enrollees', color='blue')
+plt.plot(student_df3['Term_Date'], student_df3['Engineering'], label='Engineering Enrollees', color='green')
+plt.plot(student_df3['Term_Date'], student_df3['Business'], label='Business Enrollees', color='red')
+plt.plot(student_df3['Term_Date'], student_df3['Arts'], label='Arts Enrollees', color='purple')
+plt.title('Enrollees Over Time by Category')
+plt.xlabel('Date')
+plt.ylabel('Number of Enrollees')
+plt.legend()
+st.pyplot(plt)
+
 # Creating a data table
 st.subheader("University Student Data")
 st.dataframe(student_df3)
