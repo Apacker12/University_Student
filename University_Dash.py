@@ -38,9 +38,11 @@ if not term:
 else:
     student_df3 = student_df2[student_df2["Term"].isin(term)]
 
-# Calculating average metrics using the filtered data
+# Calculating metrics using the filtered data
 average_satisfaction = student_df3['Student Satisfaction (%)'].mean()
 average_retention = student_df3['Retention Rate (%)'].mean()
+admission_rate = (student_df3['Admitted'] / student_df3['Applications']) * 100
+average_admission_rate = admission_rate.mean()
 
 # Adding the KPIs
 col1, col2, col3, col4 = st.columns(4)
